@@ -1,15 +1,28 @@
+import { LogtoConfig, LogtoProvider } from "@logto/rn";
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 
 export default function RootLayout() {
-
   const [loaded, error] = useFonts({
-    'outfit' : require('./../assets/fonts/Outfit-Regular.ttf'),
-    'outfit-bold' : require('./../assets/fonts/Outfit-Bold.ttf'),
+    outfit: require("./../assets/fonts/Outfit-Regular.ttf"),
+    "outfit-bold": require("./../assets/fonts/Outfit-Bold.ttf"),
+  });
 
-  })
+  const config: LogtoConfig = {
+    endpoint: "https://0xjcno.logto.app/",
+    appId: "kd3zo3udu6j5n6f1xlo6m",
+  };
 
-  return <Stack screenOptions={{
-    headerShown: false,
-  }}/>;
+  return (
+    <LogtoProvider config={config}>
+      <Stack>
+        <Stack.Screen
+          name="Landing"
+          options={{
+            headerShown: false,
+          }}
+        />
+      </Stack>
+    </LogtoProvider>
+  );
 }
