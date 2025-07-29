@@ -1,6 +1,13 @@
 import { Marquee } from "@animatereactnative/marquee";
 import { useLogto } from "@logto/rn";
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  Button,
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import Colors from "../services/Colors";
 
@@ -44,7 +51,7 @@ export default function Landing() {
           </View>
         </Marquee>
         <Marquee
-          spacing={10}
+          spacing={8}
           speed={0.7}
           style={{ transform: [{ rotate: "-4deg" }], marginTop: 10 }}
         >
@@ -78,14 +85,14 @@ export default function Landing() {
             fontSize: 17,
             textAlign: "center",
             color: "gray",
-            marginTop: 15,
+            marginTop: 10,
           }}
         >
           Generate delicious receipes in seconds with the power of AI!
         </Text>
         <TouchableOpacity
           style={styles.button}
-          onPress={async () => signIn("cookmateai://callback")}
+          onPress={async () => signIn("exp://192.168.226.221:8081")}
         >
           <Text
             style={{
@@ -98,6 +105,7 @@ export default function Landing() {
             Get Started
           </Text>
         </TouchableOpacity>
+        <Button title="Sign out" onPress={async () => signOut()} />
       </View>
     </GestureHandlerRootView>
   );
@@ -118,6 +126,6 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.PRIMARY,
     padding: 15,
     borderRadius: 15,
-    marginTop: 15,
+    marginTop: 10,
   },
 });

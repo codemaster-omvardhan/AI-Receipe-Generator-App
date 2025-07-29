@@ -1,4 +1,4 @@
-import { LogtoConfig, LogtoProvider } from "@logto/rn";
+import { LogtoConfig, LogtoProvider, UserScope } from "@logto/rn";
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 
@@ -11,6 +11,7 @@ export default function RootLayout() {
   const config: LogtoConfig = {
     endpoint: "https://0xjcno.logto.app/",
     appId: "kd3zo3udu6j5n6f1xlo6m",
+    scopes: [UserScope.Email],
   };
 
   return (
