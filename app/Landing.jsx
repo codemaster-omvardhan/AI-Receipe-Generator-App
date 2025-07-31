@@ -1,13 +1,6 @@
 import { Marquee } from "@animatereactnative/marquee";
 import { useLogto } from "@logto/rn";
-import {
-  Button,
-  Image,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import Colors from "../services/Colors";
 
@@ -105,7 +98,6 @@ export default function Landing() {
             Get Started
           </Text>
         </TouchableOpacity>
-        <Button title="Sign out" onPress={async () => signOut()} />
       </View>
     </GestureHandlerRootView>
   );
