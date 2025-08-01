@@ -9,6 +9,7 @@ export default function Index() {
   const { getIdTokenClaims, isAuthenticated } = useLogto();
   const { user, setUser } = useContext(UserContext);
   const router = useRouter();
+
   useEffect(() => {
     if (isAuthenticated) {
       getIdTokenClaims().then(async (userData) => {
@@ -24,15 +25,16 @@ export default function Index() {
             };
             const resp = await GlobalApi.CreateNewUser(data);
             setUser(resp.data.data);
-            router.replace("/Landing");
+            router.replace("/(tabs)/Home");
           } else {
             setUser(result?.data?.data)[0];
-            router.replace("/Landing");
+            router.replace("/(tabs)/Home");
           }
         }
       });
     }
   }, [isAuthenticated]);
+
   return (
     <View
       style={{
